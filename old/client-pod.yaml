@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: client-pod
+  # name em conunto com kind identificam de forma única o Pod (ou service)
+  # Se quiser atualizar a imagem por exemplo, basta manter o name e o kind
+  # que o kubernetes sabe que deve atuliazar o Pod, ao invés de criar outro.
+  labels:
+    component: web
+spec:
+  containers:
+  - name: client
+    image: paulo1410/multi-worker
+    ports:
+      - containerPort: 3000
